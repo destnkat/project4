@@ -62,6 +62,12 @@ var SDI = {
         var emailRx = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
         return emailRx.test(email);
 
+    },
+    /**
+     * Replaces a string delimiter with a new user defined delimiter
+     */
+    replaceDelimiter: function(string, newDelimiter) {
+        return string.replace(/,/g, newDelimiter);
     }
 }
 
@@ -79,6 +85,7 @@ function init() {
     console.log(sdi.getParsedNumberValue('62'));  //outputs 62
     console.log(sdi.isValidEmail('test@yahoo'));   // False
     console.log(sdi.isValidEmail('test@yahoo.com')); //True
+    console.log(sdi.replaceDelimiter('test, a new string,with commas, but will output differently', '?'));
 }
 
 window.onload = init;
