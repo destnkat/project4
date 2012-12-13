@@ -44,6 +44,24 @@ var SDI = {
 
         return dateDiff / (24*3600); // Return Hours
 
+    },
+    /**
+     * Takes a string and parses it to an integer base 10 value
+     */
+    getParsedNumberValue: function(num) {
+        if (isNaN(num)) {
+            return parseInt(num, 10);
+        } else {
+            return num;
+        }
+    },
+    /**
+     * Validates an email address for proper format
+     */
+    isValidEmail: function(email) {
+        var emailRx = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        return emailRx.test(email);
+
     }
 }
 
@@ -58,6 +76,9 @@ function init() {
     console.log(sdi.totalNumbersValue(numbersArrayTest)); //105
     console.log(sdi.getSmallestNumberValue(smallNumberArr, 22)); //32
     console.log(sdi.dateDifference('August 15, 2012', 'May 20, 2013', 'days'));
+    console.log(sdi.getParsedNumberValue('62'));  //outputs 62
+    console.log(sdi.isValidEmail('test@yahoo'));   // False
+    console.log(sdi.isValidEmail('test@yahoo.com')); //True
 }
 
 window.onload = init;
